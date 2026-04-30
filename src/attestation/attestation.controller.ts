@@ -45,7 +45,7 @@ export class AttestationController {
     @Body() options: AttestationSelectorDto,
   ) {
     this.logger.log(
-      `POST /attestation/request for RequestId: ${options?.extensions?.liquid?.requestId}`,
+      `POST /attestation/request for RequestId: ${(options?.extensions?.liquid as any)?.requestId}`,
     );
     // Enforce the liquid extension
     if (typeof options?.extensions?.liquid === 'undefined') {
@@ -55,7 +55,7 @@ export class AttestationController {
       });
     }
 
-    const requestId = options.extensions.liquid.requestId;
+    const requestId = (options.extensions.liquid as any).requestId;
 
     // Request Attestation Options
     const attestationOptions = await this.attestationService.request(options);

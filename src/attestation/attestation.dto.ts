@@ -23,5 +23,5 @@ export type LiquidAuthClientExtensionResults = {
 };
 export type LiquidAttestationExtensionsClientInput =
   AuthenticationExtensionsClientInputs & {
-    liquid: boolean;
+    liquid: boolean | { requestId: string };
   };
