@@ -22,7 +22,11 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     logger: ['error', 'warn', 'debug', 'log', 'verbose'],
   });
-  app.enableCors({ origin: true, credentials: true });
+  app.enableCors({ 
+    origin: true, 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true 
+  });
   const config = app.get<ConfigService>(ConfigService);
 
   const isSentryEnabled =
