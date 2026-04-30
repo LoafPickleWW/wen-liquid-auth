@@ -9,6 +9,7 @@ import { User, UserSchema } from '../auth/auth.schema.js';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { Session, SessionSchema } from '../auth/session.schema.js';
 import { AlgodService } from '../algod/algod.service.js';
+import { Challenge, ChallengeSchema } from './challenge.schema.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AlgodService } from '../algod/algod.service.js';
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Session.name, schema: SessionSchema },
+      { name: Challenge.name, schema: ChallengeSchema },
     ]),
     ClientsModule.register([
       {
