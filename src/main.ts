@@ -72,7 +72,8 @@ async function bootstrap() {
     resave: true,
     cookie: {
       httpOnly: true,
-      secure: config.get('session.secure'),
+      secure: true,
+      sameSite: 'none',
     },
     store,
   });
